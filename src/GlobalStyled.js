@@ -29,9 +29,9 @@ export const GlobalStyle = createGlobalStyle`
       cursor: pointer;
    }
 
-   ul li {
-      list-style: none;
-   }
+   // ul li {
+   //    list-style: none;
+   // }
 
    @font-face {
       font-family: 'Montserrat';
