@@ -18,6 +18,8 @@ padding: 8px 8px;
 margin-right: 3px;
 margin-bottom: 30px;
 outline: none;
+text-align: center;
+background-color: #9207b7 ;
 &::placeholder {
    font-style: normal;
    font-weight: 400;
@@ -35,7 +37,7 @@ outline: none;
 export const Button = styled.button`
 width: 200px;
 height: 42px;
-color: black;
+color: #d0cece;
 background-color: #9207b7 ;
 border-radius: 20px;
 margin-bottom: 20px;

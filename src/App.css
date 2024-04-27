@@ -1,38 +1,6 @@
 .App {
   margin-top: 32px;
   text-align: center;
+  background-color: #c2f5ff;
 
-}
-
-.App-header{
-  margin-bottom: 32px;
-  display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-gap: 24px;
-}
-.App-h2 {
-  margin-bottom: 32px;
-}
-
-.App-input {
-  width: 250px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border: 1px solid #d0cece;
-  border-radius: 20px;
-  padding: 8px 8px;
-  margin-right: 3px;
-  margin-bottom: 30px;
-  outline: none;
-  &::placeholder {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: -0.05px;
-    color: #d0cece70;
-  }
 }
