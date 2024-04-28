@@ -11,7 +11,6 @@ function App() {
     <div className="App">
       <Provider store={store}>
       <HeaderBox />
-      {/* <h2 className='App-h2'>Поиск юзеров</h2> */}
       <SearchBox />
       <UserList />
       </Provider>

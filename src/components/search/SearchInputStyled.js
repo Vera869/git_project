@@ -5,30 +5,28 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+margin-bottom: 50px;
 }
 `
 export const Input = styled.input`
-width: 250px;
-color: #d0cece;
+width: 230px;
+color: #9207b7;
 font-weight: bold;
-border-top: none;
-border-left: none;
-border-right: none;
-border: 1px solid #d0cece;
+border: 1px solid #9207b7;
 border-radius: 20px;
 padding: 8px 8px;
 margin-right: 3px;
 margin-bottom: 30px;
-outline: none;
+outline-color: #9207b7;
 text-align: center;
-background-color: #9207b7 ;
+background: transparent;
 &::placeholder {
    font-style: normal;
    font-weight: 400;
    font-size: 22px;
    line-height: 24px;
    letter-spacing: -0.05px;
-   color: #d0cece;
+   color: #9207b7;
  }
 // &:active,
 // &:hover  {
@@ -42,7 +40,6 @@ height: 42px;
 color: #d0cece;
 background-color: #9207b7 ;
 border-radius: 20px;
-margin-bottom: 20px;
 border: none;
 display: -webkit-box;
 display: -ms-flexbox;

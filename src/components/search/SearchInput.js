@@ -25,6 +25,7 @@ import { setIsLoading, setUsername, setUsers } from '../../store/usersSlice';
    }
    return (
       <S.SearchConteiner>
+      {/* <h2 className='App-h2'>Поиск юзеров</h2> */}
          <S.Input type="text" placeholder="введите имя юзера" value={username} onChange={onChangeHandler}/>
          <S.Button onClick={searchHeandler} disabled={isLoading}>{isLoading ? "Идёт поиск" : "Найти"}</S.Button>
       </S.SearchConteiner>

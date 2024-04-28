@@ -8,7 +8,7 @@ export const AppHeader = styled.header`
    justify-content: center;
    align-items: center;
    gap: 24px;
-   margin-bottom: 32px;
+   margin: 32px 0px 50px 0px;
 `
 export const HeaderH1 = styled.h1` 
    color: #6f42c1;

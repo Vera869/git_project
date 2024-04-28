@@ -40,6 +40,7 @@ export const GlobalStyle = createGlobalStyle`
         url('/fonts/Montserrat-VariableFont_wght') format('ttf');
       font-weight: 400;
       font-style: normal;
+      
       font-color: #0000;
     }
 
@@ -49,6 +50,10 @@ export const GlobalStyle = createGlobalStyle`
       width: 100%;
       height: 100%;
       color: #0000;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 24px;
+      font-weight: bold;
       background-color: #c2f5ff;
    }
    `
