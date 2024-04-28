@@ -4,7 +4,7 @@ import SearchBox from './components/search/SearchInput';
 import UserList from './components/userlist/UserList';
 import HeaderBox from './components/header/Header'
 import { Provider} from 'react-redux'
-import {store} from './store/index'
+import {store} from './store/store'
 
 function App() {
   return (

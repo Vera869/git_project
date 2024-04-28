@@ -9,6 +9,8 @@ align-items: center;
 `
 export const Input = styled.input`
 width: 250px;
+color: #d0cece;
+font-weight: bold;
 border-top: none;
 border-left: none;
 border-right: none;
@@ -62,5 +64,8 @@ justify-content: center;
 &:active {
   background-color: #c2f5ff;
   border: 1px solid #d0cece;
+}
+&:disabled {
+  background-color: #ba38d3;
 }
 `

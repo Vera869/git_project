@@ -10,18 +10,18 @@ export const UserListConteiner = styled.div`
    width: 1000px;
 `
 export const UserLi = styled.div`
-   //list-style-type: square;
    padding: 20;
    height: 400px;
    width: 1000px;
-   color: #0000;
-   background-color: #c2f5ff;
+   color: black;
 `
-export const UserItem = styled.p`
-   color: #0000;
-   height: 20px;
+export const UserItem = styled.div`
+   display: flex;
+   flex-direction: column;
+   color: #343a40;
+   width: 1000px
    padding-left: 15px;
    font-weight: 400;
    font-style: normal;
-   font-color: #0000;
+   // font-color: #0000;
 `

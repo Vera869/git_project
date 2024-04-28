@@ -6,11 +6,11 @@ const usersSlice = createSlice({
     users: [],
     userRepo: [],
     username: "",
-    isLoaded: false,
+    isLoading: false,
   },
   reducers: {
     setUsers(state, action) {
-      state.users = action.payload.users
+      state.users = action.payload
     },
     setUsername(state, action) {
       state.username = action.payload
@@ -18,11 +18,11 @@ const usersSlice = createSlice({
     setUserRepo(state, action) {
       state.userRepo = action.payload
     },
-    setIsLoaded(state) {
-      state.isLoaded = !state.isLoaded
+    setIsLoading(state, action) {
+      state.isLoading = action.payload
     },
   },
   
 })
 export const usersReducer = usersSlice.reducer
-export const { setUsers, setUsername, setIsLoaded} = usersSlice.actions;
+export const { setUsers, setUsername, setIsLoading} = usersSlice.actions;
