@@ -8,9 +8,7 @@ export const LayoutPage = () => {
      <S.App>
       <HeaderBox />
       <Outlet />
-      <footer>
-       <PaginationBox />
-      </footer>
+      <PaginationBox />
      </S.App>
    )
 }

@@ -12,6 +12,12 @@ export const UserListConteiner = styled.div`
    width: auto;
    padding: 40px 50px 40px 50px;
 `
+export const UsersTotalCount = styled.div`
+color: #ba38d3;
+font-size: 42px;
+text-align: center;
+width: 100%;
+`
 export const UserItem = styled.div`
    display: flex;
    flex-direction: column;

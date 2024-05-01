@@ -14,7 +14,7 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 gap: 32px;
-margin-bottom: 50px;
+// margin-bottom: 50px;
 flex-wrap: wrap;
 }
 `

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as S from "./SearchInputStyled";
 import { useDispatch, useSelector } from 'react-redux'
 import { searchUsers } from '../../Api';
-import { setIsLoading, setIsShowSort, setIsShowUsersNum, setOrder, setPer_page, setUsername, setUsers } from '../../store/usersSlice';
+import { setIsLoading, setIsShowSort, setIsShowUsersNum, setPerPage, setOrder, setUsername, setUsers, setTotalCount } from '../../store/usersSlice';
+
 
  const SearchBox = () => {
    const dispatch = useDispatch();
@@ -11,9 +12,9 @@ import { setIsLoading, setIsShowSort, setIsShowUsersNum, setOrder, setPer_page, 
    const isShowSort = useSelector((state) => state.users.isShowSort);
    const isShowUsersNum = useSelector((state) => state.users.isShowUsersNum);
    const order = useSelector((state) => state.users.order);
-   const per_page = useSelector((state) => state.users.per_page);
-   // const page = useSelector((state) => state.users.page);
-   const page = 3;
+   const perPage = useSelector((state) => state.users.perPage);
+   const page = useSelector((state) => state.users.page);
+   
    const onChangeHandler = e => {
       dispatch(setUsername(e.target.value));
    }
@@ -22,19 +23,20 @@ import { setIsLoading, setIsShowSort, setIsShowUsersNum, setOrder, setPer_page, 
       dispatch(setOrder(value));
       console.log(order);
   }
+
    const setNumUsersHeandler = (value) => {
        dispatch(setIsShowUsersNum());
-       dispatch(setPer_page(value));
-       console.log(per_page);
+       dispatch(setPerPage(value));
+       console.log(perPage);
    }
    const searchHeandler = () => {
       dispatch(setIsLoading(true));
-      searchUsers(username, order, per_page, page).then(data => {
-         console.log(data.items);
+      searchUsers(username, order, perPage, page).then(data => {
+         console.log(data);
+         dispatch(setTotalCount(data.total_count));
          dispatch(setUsers(data.items));
          dispatch(setIsLoading(false));
       });
-      
    }
    return (<>
       <S.SearchHeader>Поиск юзеров</S.SearchHeader>
@@ -54,9 +56,10 @@ import { setIsLoading, setIsShowSort, setIsShowUsersNum, setOrder, setPer_page, 
          <S.SortBox>
             <S.SortButton onClick={() => dispatch(setIsShowUsersNum())}>Отображение по колличеству юзеров</S.SortButton>
              {isShowUsersNum ? <S.SortList >
-               <S.SortListItem onClick={() => setNumUsersHeandler(10)}>10</S.SortListItem>
+               <S.SortListItem onClick={() => setNumUsersHeandler(1)}>1</S.SortListItem>
                <S.SortListItem onClick={() => setNumUsersHeandler(20)}>20</S.SortListItem>
-               <S.SortListItem onClick={() => setNumUsersHeandler(30)}>30</S.SortListItem>
+               <S.SortListItem onClick={() => setNumUsersHeandler(50)}>50</S.SortListItem>
+               <S.SortListItem onClick={() => setNumUsersHeandler(100)}>100</S.SortListItem>
             </S.SortList>: ''}
          </S.SortBox>
       </S.SearchConteiner>

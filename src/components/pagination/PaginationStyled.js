@@ -2,18 +2,19 @@ import styled from 'styled-components'
 
 export const PaginationBox = styled.div`
 width: 100%;
-max-height: 100px;
+min-height: 90px;
 display: flex;
 flex-direction: row;
 justify-content: center;
+flex-wrap: wrap;
 align-items: center;
 gap: 10px;
 margin-bottom: 20px;
 `
 export const PaginationButton = styled.button`
-width: 25px;
-height: 25px;
-
+width: 85px;
+height: 35px;
+padding: 5px;
 color: #d0cece;
 background-color: #9207b7 ;
 border-radius: 20px;
