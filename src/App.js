@@ -1,19 +1,20 @@
 import React from 'react';
-//import './App.css';
-import SearchBox from './components/search/SearchInput';
-import UserList from './components/userlist/UserList';
-import HeaderBox from './components/header/Header'
-import { Provider} from 'react-redux'
-import {store} from './store/store'
+// import SearchBox from './components/search/SearchInput';
+// import UserList from './components/userlist/UserList';
+// import HeaderBox from './components/header/Header'
+// import { Provider} from 'react-redux'
+// import {store} from './store/store'
+import { AppRoutes } from './routes';
 
 function App() {
   return (
     <div className="App">
-      <Provider store={store}>
+      <AppRoutes />
+      {/* <Provider store={store}>
       <HeaderBox />
       <SearchBox />
       <UserList />
-      </Provider>
+      </Provider> */}
     </div>
   );
 }

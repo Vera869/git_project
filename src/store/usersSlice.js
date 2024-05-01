@@ -4,9 +4,13 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: {
     users: [],
-    userRepo: [],
-    username: "",
     isLoading: false,
+    username: "",
+    per_page: 6,
+    page: 1,
+    order: "desc",
+    isShowSort: false,
+    isShowUsersNum: false,
   },
   reducers: {
     setUsers(state, action) {
@@ -15,14 +19,25 @@ const usersSlice = createSlice({
     setUsername(state, action) {
       state.username = action.payload
     },
-    setUserRepo(state, action) {
-      state.userRepo = action.payload
+    setPer_page(state, action) {
+      state.per_page = action.payload
+    },
+    setPage(state, action) {
+      state.page = action.payload
+    },
+    setOrder(state, action) {
+      state.order = action.payload
     },
     setIsLoading(state, action) {
       state.isLoading = action.payload
+    },
+    setIsShowSort(state) {
+      state.isShowSort = !state.isShowSort
+    },setIsShowUsersNum(state) {
+      state.isShowUsersNum = !state.isShowUsersNum
     },
   },
   
 })
 export const usersReducer = usersSlice.reducer
-export const { setUsers, setUsername, setIsLoading} = usersSlice.actions;
+export const { setUsers, setUsername, setPer_page, setPage, setOrder, setIsLoading, setIsShowSort, setIsShowUsersNum } = usersSlice.actions;

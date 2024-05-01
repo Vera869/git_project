@@ -2,8 +2,8 @@
 
 const host = 'https://api.github.com/search/';
 
-export async function searchUsers(username){
-   const response = await fetch(`${host}users?q=${username}+in:user`, {
+export async function searchUsers(username, order, per_page, page){
+   const response = await fetch(`${host}users?q=${username}+in:user&sort=repositories&order=${order}&per_page=${per_page}&page=${page}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -17,12 +17,12 @@ export async function searchUsers(username){
    return res
 }
 
-// export async function getUserRepos (username){
-//    const response = await fetch(`${host}users/${username}/repos`)
-//    if(!response.ok) {
-//       throw new Error("Произошла ошибка");
-//    } 
-//    const data = response.json();
+export async function getUserRepos (username){
+   const response = await fetch(`${host}users/${username}/repos`)
+   if(!response.ok) {
+      throw new Error("Произошла ошибка");
+   } 
+   const data = response.json();
 
-//    return data
-// }
+   return data
+}
