@@ -10,12 +10,28 @@ function PaginationBox() {
    const order = useSelector((state) => state.users.order);
    const perPage = useSelector((state) => state.users.perPage);
    const totalCount = useSelector((state) => state.users.totalCount);
-
+   const currentPage = useSelector((state) => state.users.page);
    const currentNumPages = Math.round(totalCount / perPage);
    const pageNumbers = [];
-   for(let i=1; i <= currentNumPages; i++){
-      pageNumbers.push(i);
+
+   if(currentNumPages > 10) {
+      if(currentPage > 5) {
+         for(let i = currentPage-4; i <= currentPage+5; i++){
+            pageNumbers.push(i);
+            if(i == currentNumPages) break;
+         }
+      } else {
+         for(let i=1; i <= 10; i++){
+            pageNumbers.push(i);
+            if(i == currentNumPages) break;
+         }
+      }
+   }else {
+      for(let i=1; i <= currentNumPages; i++){
+         pageNumbers.push(i);
+      }
    }
+   
    console.log(currentNumPages);
    const changePage = (page) => {
       dispatch(setIsLoading(true));
