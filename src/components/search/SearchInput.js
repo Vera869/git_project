@@ -32,13 +32,15 @@ import { handleLoginChange } from '../../helpers';
        console.log(perPage);
    }
    const searchHeandler = () => {
-      dispatch(setIsLoading(true));
-      searchUsers(username, order, perPage, page).then(data => {
+      if(!username) return;
+      else{
+         dispatch(setIsLoading(true));
+         searchUsers(username, order, perPage, page).then(data => {
          console.log(data);
          dispatch(setTotalCount(data.total_count));
          dispatch(setUsers(data.items));
          dispatch(setIsLoading(false));
-      }).catch(err => console.log(err))
+      }).catch(err => console.log(err))}
    }
    return (<>
       <S.SearchHeader>Поиск юзеров</S.SearchHeader>
