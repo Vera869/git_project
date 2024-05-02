@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from "./PagesStyled";
 import SearchBox from '../components/search/SearchInput';
-import UserList from '../components/userlist/UserList';
+import UserList from '../components/Userlist/UserList';
 
 function Main() {
    return (
