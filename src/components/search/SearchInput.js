@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from "./SearchInputStyled";
 import { useDispatch, useSelector } from 'react-redux'
 import { searchUsers } from '../../Api';
 import { setIsLoading, setIsShowSort, setIsShowUsersNum, setPerPage, setOrder, setUsername, setUsers, setTotalCount } from '../../store/usersSlice';
-
+import { handleLoginChange } from '../../helpers';
 
  const SearchBox = () => {
    const dispatch = useDispatch();
+   const [isLoginError, setLoginError] = useState([]);
    const username = useSelector((state) => state.users.username);
    const isLoading = useSelector((state) => state.users.isLoading);
    const isShowSort = useSelector((state) => state.users.isShowSort);
@@ -15,9 +16,10 @@ import { setIsLoading, setIsShowSort, setIsShowUsersNum, setPerPage, setOrder, s
    const perPage = useSelector((state) => state.users.perPage);
    const page = useSelector((state) => state.users.page);
    
-   const onChangeHandler = e => {
-      dispatch(setUsername(e.target.value));
-   }
+   useEffect(() => {
+      console.log(page);
+   }, [page, perPage, order ]);
+
    const setSortUsersHeandler = (value) => {
       dispatch(setIsShowSort());
       dispatch(setOrder(value));
@@ -36,7 +38,7 @@ import { setIsLoading, setIsShowSort, setIsShowUsersNum, setPerPage, setOrder, s
          dispatch(setTotalCount(data.total_count));
          dispatch(setUsers(data.items));
          dispatch(setIsLoading(false));
-      });
+      }).catch(err => console.log(err))
    }
    return (<>
       <S.SearchHeader>Поиск юзеров</S.SearchHeader>
@@ -50,7 +52,12 @@ import { setIsLoading, setIsShowSort, setIsShowUsersNum, setPerPage, setOrder, s
             
          </S.SortBox>
          <S.InputBox>
-            <S.Input type="text" placeholder="введите имя юзера" value={username} onChange={onChangeHandler}/>
+            <S.Input type="text" placeholder="введите имя юзера" value={username} 
+               onChange={(event) => {
+                  handleLoginChange(event, setLoginError);
+                  dispatch(setUsername(event.target.value));
+                  }}/>
+            <S.inputError>{isLoginError}</S.inputError>
             <S.Button onClick={searchHeandler} disabled={isLoading}>{isLoading ? "Идёт поиск" : "Найти"}</S.Button>
          </S.InputBox>
          <S.SortBox>

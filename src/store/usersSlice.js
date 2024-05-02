@@ -25,6 +25,7 @@ const usersSlice = createSlice({
     },
     setPerPage(state, action) {
       state.perPage = action.payload
+      console.log(state.perPage);
     },
     setPage(state, action) {
       state.page = action.payload

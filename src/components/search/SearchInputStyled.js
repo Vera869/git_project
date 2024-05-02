@@ -51,6 +51,9 @@ background: transparent;
 //   border: 3px solid #c2f5ff;
 // }
 `
+export const inputError = styled.div`
+color: red;
+`
 export const Button = styled.button`
 width: 200px;
 height: 42px;

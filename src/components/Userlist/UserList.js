@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as S from "./UserListStyled";
 import {  useSelector } from 'react-redux';
 
@@ -6,7 +6,9 @@ import {  useSelector } from 'react-redux';
    const users = useSelector((state) => state.users.users);
    const isLoading = useSelector((state) => state.users.isLoading);
    const totalCount = useSelector((state) => state.users.totalCount);
-
+   useEffect(() => {
+      console.log(users);
+   }, [users, totalCount]);
    if(users.length == 0) {
       return <S.UsersLoading>Мы пока не нашли ни одного пользователя</S.UsersLoading>
    }else {return (<>

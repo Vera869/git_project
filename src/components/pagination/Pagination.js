@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as S from "./PaginationStyled";
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsLoading, setPage, setUsers } from '../../store/usersSlice';
@@ -14,6 +14,10 @@ function PaginationBox() {
    const currentNumPages = Math.round(totalCount / perPage);
    const pageNumbers = [];
 
+   useEffect(() => {
+      console.log(username);
+   }, [username, totalCount, currentPage, perPage, order]);
+
    if(currentNumPages > 10) {
       if(currentPage > 5) {
          for(let i = currentPage-4; i <= currentPage+5; i++){
@@ -26,7 +30,7 @@ function PaginationBox() {
             if(i == currentNumPages) break;
          }
       }
-   }else {
+   }else if(currentNumPages < 10) {
       for(let i=1; i <= currentNumPages; i++){
          pageNumbers.push(i);
       }
@@ -41,14 +45,17 @@ function PaginationBox() {
          dispatch(setIsLoading(false));
       });
    }
-   return (
-      <S.PaginationBox>
-         {pageNumbers.map((number) => (
-            <S.PaginationButton key={number}  onClick={() =>{
-               dispatch(setPage(number));
-               changePage(number)}}>{number}</S.PaginationButton>
-         ))}
-      </S.PaginationBox>
+   return (<>
+      {username ? 
+         (<S.PaginationBox>
+            {pageNumbers.map((number) => (
+               <S.PaginationButton key={number}  onClick={() =>{
+                  dispatch(setPage(number));
+                  changePage(number)}}>{number}</S.PaginationButton>
+            ))}
+         </S.PaginationBox>) : ""
+      }
+      </>
    )
 }
 
