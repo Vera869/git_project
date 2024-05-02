@@ -20,7 +20,7 @@ import {  useSelector } from 'react-redux';
             return <S.UserItem key={index}>
                <S.UserImg src={user.avatar_url} alt="avatar"></S.UserImg>
                <S.UserLogin>{user.login}</S.UserLogin>
-               <S.UserInfo>Просмотреть основную информацию</S.UserInfo>
+               <S.UserInfo >id:{user.id} </S.UserInfo>
                <S.UserGit to={user.html_url} >Просмотреть в GitHub</S.UserGit>
             </S.UserItem>
           })}

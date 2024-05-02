@@ -40,7 +40,4 @@ justify-content: center;
   background-color: #c2f5ff;
   border: 1px solid #d0cece;
 }
-&:disabled {
-  background-color: #ba38d3;
-}
 `
