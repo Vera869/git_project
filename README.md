@@ -10,4 +10,4 @@
 Вы также можете увидеть любые ошибки lint в консоли.
 
 Вы также можете перейти по этой ссылке и просмотреть деплой данного приложения:
-https://reliable-pithivier-14a09e.netlify.app/
+[https://reliable-pithivier-14a09e.netlify.app/](https://git-api-test.netlify.app)
